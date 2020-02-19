@@ -1,0 +1,1 @@
+!python train_frcnn.py -o simple -p annotate.txt --input_weight_path resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5 --num_epochs 4
