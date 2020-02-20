@@ -29,10 +29,9 @@ def get_data(input_path):
 					print('Found class name with special name bg. Will be treated as a background region (this is usually for hard negative mining).')
 					found_bg = True
 				class_mapping[class_name] = len(class_mapping)
-
+			
 			if filename not in all_imgs:
 				all_imgs[filename] = {}
-				
 				img = cv2.imread(filename)
 				(rows,cols) = img.shape[:2]
 				all_imgs[filename]['filepath'] = filename
