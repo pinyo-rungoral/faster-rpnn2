@@ -160,7 +160,7 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 
 	if K.common.image_dim_ordering() == 'tf':
 		X = np.transpose(X, (0, 2, 3, 1))
-
+ 
 	# get the feature maps and output from the RPN
 	[Y1, Y2, F] = model_rpn.predict(X)
 	
@@ -242,6 +242,13 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 
 	print('Elapsed time = {}'.format(time.time() - st))
 	print(all_dets)
-	cv2.imshow('img', img)
-	cv2.waitKey(0)
+	# Display an image
+	cv2.imshow('img',img)
+	while True:
+		key = cv2.waitKey(1) & 0xFF
+		# if the q key was pressed, break from the loop
+		if key == ord("q"):
+			break
+			cv2.destroyAllWindows()
+		
 	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
